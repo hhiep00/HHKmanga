@@ -54,8 +54,8 @@ public class CategoryController {
 			Category entity=opt.get();
 			BeanUtils.copyProperties(entity, dto);
 			
-			dto.setIsEdit(true);
-			
+			dto.getClass();
+				
 			model.addAttribute("category", dto);
 			return new ModelAndView("admin/categories/addOrEdit", model);
 		}

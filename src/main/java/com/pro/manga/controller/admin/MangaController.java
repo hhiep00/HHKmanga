@@ -174,7 +174,7 @@ public class MangaController implements Serializable{
 //			System.out.println(entity);
 			int k=1;
 			chapterService.save(entity);
-			for(MultipartFile i:photos) {
+			for(MultipartFile i:photos) { 
 				UUID uuid = UUID.randomUUID();
 				String uuString = uuid.toString();
 				

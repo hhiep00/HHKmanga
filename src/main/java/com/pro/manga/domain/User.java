@@ -39,9 +39,88 @@ public class User implements Serializable{
 	@Column(nullable = false)
 	private Boolean isAdmin;
 	
-	@OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Favourite> favourites;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Read> reads;
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Boolean getSex() {
+		return sex;
+	}
+
+	public void setSex(Boolean sex) {
+		this.sex = sex;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
+	public Set<Favourite> getFavourites() {
+		return favourites;
+	}
+
+	public void setFavourites(Set<Favourite> favourites) {
+		this.favourites = favourites;
+	}
+
+	public Set<Read> getReads() {
+		return reads;
+	}
+
+	public void setReads(Set<Read> reads) {
+		this.reads = reads;
+	}
+
+	public User(String username, String password, Boolean sex, String email, Boolean isAdmin,
+			Set<Favourite> favourites, Set<Read> reads) {
+		this.username = username;
+		this.password = password;
+		this.sex = sex;
+		this.email = email;
+		this.isAdmin = isAdmin;
+		this.favourites = favourites;
+		this.reads = reads;
+	}
+	
+	public User() {
+		
+	}
 }

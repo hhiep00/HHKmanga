@@ -20,6 +20,7 @@
                         <tr>
                             <th></th>
                             <th>ID truyện</th>
+                            <th>Ảnh minh họa</th>
                             <th>Tên truyện</th>
                             <th>Số chương</th>
                             <th>Tác giả</th>
@@ -32,7 +33,7 @@
                         <tbody>
                             <tr th:each="item, iStat : ${mangas}" >
                                 <td></td>
-                                <td></td>
+                                <td th:text="${item.mangaId}"></td>
                                 <td> <img id="image" th:src="${item.image!=null ? '/admin/mangas/images/' + item.image : '/images/noimg.png'}" width="70" alt=""> </td>
                                 
                                 <td th:text="${item.name}"></td>
@@ -40,6 +41,7 @@
                                 <td th:text="${item.authur}"></td>
                                 <td th:text="${item.status}"></td>
                                 <td th:text="${item.description}"></td>
+                                <td>None</td>
                                 <td>
                                     <a th:href="@{'/admin/mangas/edit/'+ ${item.mangaId}}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
                                     <a th:href="@{'/admin/mangas/delete/'+ ${item.mangaId}}" class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a>

@@ -15,15 +15,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
-@Table(name = "reads")
+@Table(name = "read_manga")
 public class Read implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int readsID;
+	private Long readId;
 	
 	@ManyToOne
 	@JoinColumn(name = "chapterId")
@@ -32,4 +30,38 @@ public class Read implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
+
+	public Long getReadId() {
+		return readId;
+	}
+
+	public void setReadId(Long readId) {
+		this.readId = readId;
+	}
+
+	public Chapter getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(Chapter chapter) {
+		this.chapter = chapter;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Read(Long readId, Chapter chapter, User user) {
+		this.readId = readId;
+		this.chapter = chapter;
+		this.user = user;
+	}
+	
+	public Read() {
+		
+	}
 }

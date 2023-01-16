@@ -32,4 +32,37 @@ public class MangaCategory implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "mangaId")
 	private Manga manga;
+
+	public Long getMangaCategoryId() {
+		return mangaCategoryId;
+	}
+
+	public void setMangaCategoryId(Long mangaCategoryId) {
+		this.mangaCategoryId = mangaCategoryId;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Manga getManga() {
+		return manga;
+	}
+
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
+
+	public MangaCategory( Category category, Manga manga) {
+		this.category = category;
+		this.manga = manga;
+	}
+	
+	public MangaCategory() {
+		
+	}
 }

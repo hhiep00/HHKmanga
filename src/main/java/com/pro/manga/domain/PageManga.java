@@ -32,4 +32,47 @@ public class PageManga implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "chapterId")
 	private Chapter chapter;
+
+	public int getPageId() {
+		return pageId;
+	}
+
+	public void setPageId(int pageId) {
+		this.pageId = pageId;
+	}
+
+	public int getNumberPage() {
+		return numberPage;
+	}
+
+	public void setNumberPage(int numberPage) {
+		this.numberPage = numberPage;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Chapter getChapter() {
+		return chapter;
+	}
+
+	public void setChapter(Chapter chapter) {
+		this.chapter = chapter;
+	}
+
+	public PageManga(int pageId, int numberPage, String content, Chapter chapter) {
+		this.pageId = pageId;
+		this.numberPage = numberPage;
+		this.content = content;
+		this.chapter = chapter;
+	}
+	
+	public PageManga() {
+		
+	}
 }

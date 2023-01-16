@@ -11,9 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class CategoryDto implements Serializable{
 	private Long categoryId;
 	@NotEmpty
@@ -21,4 +19,39 @@ public class CategoryDto implements Serializable{
 	private String name;
 	
 	private Boolean isEdit=false;
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Boolean getIsEdit() {
+		return isEdit;
+	}
+
+	public void setIsEdit(Boolean isEdit) {
+		this.isEdit = isEdit;
+	}
+
+	public CategoryDto(Long categoryId, @NotEmpty @Length(min = 3) String name, Boolean isEdit) {
+		this.categoryId = categoryId;
+		this.name = name;
+		this.isEdit = isEdit;
+	}
+	
+	public CategoryDto() {
+		
+	}
+	
 }

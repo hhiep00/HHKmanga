@@ -53,13 +53,13 @@ public class RegisterController {
 		entity.setPassword(encodeP);
 		
 		Account account =new Account();
-		account.setIsAdmin(false);
+		account.setIsAdmin(true);
 		account.setUsername(entity.getUsername());
 		account.setPassword(entity.getPassword());
 		
 		accountService.save(account);
 		userService.save(entity);
 		model.addAttribute("message", "User is saved");
-		return new ModelAndView("forward:/login", model);
+		return new ModelAndView("forward:/home", model);
 	}
 }

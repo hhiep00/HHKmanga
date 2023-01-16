@@ -33,7 +33,7 @@ public class Chapter implements Serializable{
 	private int numberOfPages;
 	
 	@ManyToOne
-	@JoinColumn(name = "mangaID")
+	@JoinColumn(name = "mangaId")
 	private Manga manga;
 	
 	@OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
@@ -41,4 +41,66 @@ public class Chapter implements Serializable{
 	
 	@OneToMany(mappedBy = "chapter", cascade = CascadeType.ALL)
 	private Set<Read>  reads;
+
+	public Long getChapterId() {
+		return chapterId;
+	}
+
+	public void setChapterId(Long chapterId) {
+		this.chapterId = chapterId;
+	}
+
+	public int getChapterNumber() {
+		return chapterNumber;
+	}
+
+	public void setChapterNumber(int chapterNumber) {
+		this.chapterNumber = chapterNumber;
+	}
+
+	public int getNumberOfPages() {
+		return numberOfPages;
+	}
+
+	public void setNumberOfPages(int numberOfPages) {
+		this.numberOfPages = numberOfPages;
+	}
+
+	public Manga getManga() {
+		return manga;
+	}
+
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
+
+	public Set<PageManga> getPages() {
+		return pages;
+	}
+
+	public void setPages(Set<PageManga> pages) {
+		this.pages = pages;
+	}
+
+	public Set<Read> getReads() {
+		return reads;
+	}
+
+	public void setReads(Set<Read> reads) {
+		this.reads = reads;
+	}
+
+	public Chapter( int chapterNumber, int numberOfPages, Manga manga, Set<PageManga> pages,
+			Set<Read> reads) {
+		this.chapterNumber = chapterNumber;
+		this.numberOfPages = numberOfPages;
+		this.manga = manga;
+		this.pages = pages;
+		this.reads = reads;
+	}
+	
+	public Chapter() {
+		
+	}
+	
 }

@@ -18,20 +18,20 @@
 							<div class="col-7">
 								<div class="form-group">
 									<label for="mangaId">Tên truyện</label>
-									<input  class="form-control" name="mangaId" id="mangaId" th:text="${manga.mangaId}"
+									<input  class="form-control" name="mangaId" id="mangaId" th:field="${manga.mangaId}"
 										aria-describedby="mangad" placeholder="Tên truyện">
 									<small id="mangaId" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group">
 									<label for="name">Tên truyện</label>
-									<input  class="form-control" name="name" id="name" th:text="${manga.name}"
+									<input  class="form-control" name="name" id="name" th:field="${manga.name}"
 										aria-describedby="nameId" placeholder="Tên truyện">
 									<small id="nameId" class="form-text text-muted"></small>
 								</div>
 								<div class="form-group">
 									<label for="authur">Tác giả</label>
 									<input  class="form-control" name="authur" id="authur"
-										th:text="${manga.authur}" aria-describedby="authurHid" placeholder="Tác giả">
+										th:field="${manga.authur}" aria-describedby="authurHid" placeholder="Tác giả">
 									<small id="authurHid" class="form-text text-muted"></small>
 								</div>
                                 <div class="form-group">

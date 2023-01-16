@@ -28,15 +28,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/home", "/css/**", "/js/**", "/fonts/**", "truyenqq", "http", "/admin/mangas/images/**","/register/**").permitAll()
+			.antMatchers("/home", "/css/**", "/js/**", "/fonts/**", "truyenqq", "http", "/admin/mangas/images/**","/register/**", "/resources/**", "/login/**").permitAll()
 			.antMatchers("/admin/**").hasAuthority("ADMIN")
 			.antMatchers("/manga/favourite", "/manga/history").hasAnyAuthority("ADMIN", "USER")
 			.anyRequest().authenticated().and()
-			.formLogin().loginPage("/login").permitAll()
-			
-			.defaultSuccessUrl("/home")
-			.failureUrl("/login?success=false")
-			.loginProcessingUrl("/j_spring_security_check");
+			.formLogin()
+				.loginPage("/login")
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.permitAll()
+				.loginProcessingUrl("/doLogin")
+				.defaultSuccessUrl("/home")
+				.successForwardUrl("/home")
+				.failureUrl("/login?success=false")
+				
+				
+			.and()
+			.logout()
+				.permitAll()
+				.logoutUrl("/doLogout")
+				.logoutSuccessUrl("/home");
+		
 	}
 	
 	@Override

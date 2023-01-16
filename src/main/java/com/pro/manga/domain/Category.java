@@ -12,14 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name="Categories")
 public class Category implements Serializable{
@@ -33,4 +34,28 @@ public class Category implements Serializable{
 	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private Set<MangaCategory> mangaCategories;
+	
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Category(String name) {
+		this.name = name;
+	}
+	
+	public Category() {
+		
+	}
 }

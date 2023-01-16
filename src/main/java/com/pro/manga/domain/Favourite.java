@@ -32,4 +32,39 @@ public class Favourite implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "userId")
 	private User user;
+
+	public int getFavouritesId() {
+		return favouritesId;
+	}
+
+	public void setFavouritesId(int favouritesId) {
+		this.favouritesId = favouritesId;
+	}
+
+	public Manga getManga() {
+		return manga;
+	}
+
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Favourite( Manga manga, User user) {
+		this.manga = manga;
+		this.user = user;
+	}
+	
+	public Favourite() {
+		
+	}
+	
+	
 }

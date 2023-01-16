@@ -17,9 +17,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
+
 @Entity
 @Table(name = "accounts")
 public class Account implements Serializable{
@@ -32,4 +31,36 @@ public class Account implements Serializable{
 	private String password;
 	@Column(nullable = false)
 	private Boolean isAdmin;
+	public Long getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(Long accountId) {
+		this.accountId = accountId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	public Account(String username, String password, Boolean isAdmin) {
+		this.username = username;
+		this.password = password;
+		this.isAdmin = isAdmin;
+	}
+	
+	public Account() {
+	}
 }
